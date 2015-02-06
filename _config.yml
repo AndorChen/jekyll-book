@@ -14,3 +14,9 @@ github_username:  jekyll
 markdown: kramdown
 
 paginate: 10
+
+gems:
+  - jekyll-archives
+
+jekyll-archives:
+  enabled: all
