@@ -1,5 +1,9 @@
+require_relative 'category_links'
+
 module Jekyll
   class ArchivePageTitleTag < Liquid::Tag
+    include CategoryLinksFilter
+
     ARCHIVE_PAGE_TYPES = %w(category tag year month day)
 
     def render(context)
@@ -13,12 +17,12 @@ module Jekyll
       # 检查当前页面是否为五个归档页面之一
       page_type = page['type']
       unless ARCHIVE_PAGE_TYPES.include? page_type
-        return "" # 沉默是金
+        return"" # 沉默是金
       end
 
       case page_type
       when 'category'
-        "“#{page['title']}”分类的归档"
+        "“#{category_data(page['title'], context)['name']}”分类的归档"
       when 'tag'
         "“#{page['title']}”标签的归档"
       when 'year'

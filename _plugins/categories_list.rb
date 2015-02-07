@@ -11,12 +11,13 @@ module Jekyll
 
       output = '<ul>'
       site.categories.each do |cat, posts|
+        cat_data = category_data(cat, context)
         output << '<li>'
 
         if jekyll_archives_installed
-          output << category_link(cat, context)
+          output << category_link(cat_data, context)
         else
-          output << cat
+          output << cat_data['name']
         end
 
         if show_count
