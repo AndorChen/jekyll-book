@@ -1,19 +1,7 @@
 ---
 layout: default
 ---
-{% if page.type == 'category' %}
-  {% capture page_title %}“{{ page.title }}”分类的归档{% endcapture %}
-{% elsif page.type == 'tag' %}
-  {% capture page_title %}“{{ page.title }}”标签的归档{% endcapture %}
-{% elsif page.type == 'year' %}
-  {% assign page_title = page.date | date: '%Y年' | append: '归档' %}
-{% elsif page.type == 'month' %}
-  {% assign page_title = page.date | date: '%Y年%-m月' | append: '归档' %}
-{% elsif page.type == 'day' %}
-  {% assign page_title = page.date | date: '%Y年%-m月%-d日' | append: '归档' %}
-{% endif %}
-
-<h1 class="page-heading">{{ page_title }}</h1>
+<h1 class="page-heading">{% archive_page_title %}</h1>
 
 <ul class="post-list">
   {% for post in page.posts %}
