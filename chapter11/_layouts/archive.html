@@ -1,0 +1,13 @@
+---
+layout: default
+---
+<h1 class="page-heading">{% archive_page_title %}</h1>
+
+<ul class="post-list">
+  {% for post in page.posts %}
+    <li>
+      <span class="post-date">{{ post.date | date: "%Y年%-m月%-d日" }}</span>
+      <a href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
+    </li>
+  {% endfor %}
+</ul>
