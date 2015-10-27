@@ -1,17 +1,31 @@
 ---
 layout: default
 ---
+{% if page.author %}
+  {% assign the_author = site.data.authors[page.author] %}
+{% endif %}
+
 <article class="post">
   <header class="post-header">
     <h1 class="post-title"><a href="{{ page.url | prepend: site.baseurl }}">{{ page.title }}</a></h1>
-    <p class="post-meta">{{ page.date | date: "%Y年%-m月%-d日" }} {{ page.categories |
-category_links }}</p>
+    <p class="post-meta">
+      {% if the_author %}{{ the_author.name }}{% endif %}
+      {{ page.date | date: "%Y年%-m月%-d日" }}
+      {{ page.categories | category_links}}
+    </p>
   </header>
 
   <div class="post-content">
     {{ content }}
   </div>
 </article>
+
+{% if the_author %}
+  <div class="alert alert-success author-info">
+    <h5>{{ the_author.name }}</h5>
+    <p>{{ the_author.bio }}</p>
+  </div>
+{% endif %}
 
 {% if page.previous or page.next %}
 <nav>
