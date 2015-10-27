@@ -1,5 +1,9 @@
+require_relative 'category_links'
+
 module Jekyll
   class ArchivePageTitleTag < Liquid::Tag
+    include CategoryLinksFilter
+
     ARCHIVE_PAGE_TYPES = %w(category tag year month day)
 
     def render(context)
@@ -18,7 +22,7 @@ module Jekyll
 
       case page_type
       when 'category'
-        "“#{page['title']}”分类的归档"
+        "“#{category_data(page['title'], context)['name']}”分类的归档"
       when 'tag'
         "“#{page['title']}”标签的归档"
       when 'year'
