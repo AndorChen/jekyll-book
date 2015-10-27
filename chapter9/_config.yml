@@ -21,3 +21,5 @@ github_username:  jekyll
 markdown: kramdown
 
 permalink: 'pretty'
+
+paginate: 10
