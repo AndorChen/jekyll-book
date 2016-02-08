@@ -21,3 +21,11 @@ github_username:  jekyll
 markdown: kramdown
 
 permalink: 'pretty'
+
+defaults:
+  -
+    scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "post"

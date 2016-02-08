@@ -1,0 +1,8 @@
+{
+  "private": true,
+  "devDependencies": {
+    "gulp": "^3.9.0",
+    "gulp-changed-in-place": "^2.0.3",
+    "gulp-htmlmin": "^1.2.0"
+  }
+}
